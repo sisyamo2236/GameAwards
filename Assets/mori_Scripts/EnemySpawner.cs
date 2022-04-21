@@ -17,17 +17,24 @@ public class EnemySpawner : MonoBehaviour
     [Tooltip("Zスポーン範囲")]
     private float rangeZ;
 
-    [SerializeField, Range(0, 100)]
+    [SerializeField, Range(0, 1000)]
     [Tooltip("スポーン制限数")]
     private int SpawnCount = 50;
 
-    [SerializeField, Range(120, 600)]
+    [SerializeField, Range(0, 600)]
     [Tooltip("スポーン頻度")]
     private int SpawnSpeed = 240;
 
     // Start is called before the first frame update
     void Start()
     {
+    }
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = new Color(1f, 0, 0, 0.3f);
+        Vector3 pos = new Vector3(0.0f, 0.0f, 0.0f);
+        Vector3 size = new Vector3(1.0f + rangeX*2.0f, 1.0f, 1.0f + +rangeZ * 2.0f);
+        Gizmos.DrawCube(pos, size);
     }
 
     // Update is called once per frame
