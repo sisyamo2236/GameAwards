@@ -30,10 +30,9 @@ public class EffectManager : MonoBehaviour
         for (int count = 0; count < pursuit; count++)
         {
             // 円を設定 
-            Vector3 position = Random.onUnitSphere;
+            Vector2 position = Random.insideUnitCircle;
             position.x = position.x * size.x + offset.x;
             position.y = position.y * size.y + offset.y;
-            position.z = position.y * size.z + offset.z;
 
             // 0.1秒間隔で出現
             yield return new WaitForSeconds(0.1f);
